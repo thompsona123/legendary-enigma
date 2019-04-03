@@ -4,6 +4,19 @@ let score = 0;
 let goodMoleClicked;
 let badMoleClicked;
 let timer = 5;
+let grid = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+];
+let boxClicked;
+let rmousx
+let rmousy
+
+function mousePressed(){
+  let rmousx = mouseX
+  let rmousy = mouseY
+}
 
 function setup() {
   createCanvas(750, 750);
@@ -79,6 +92,10 @@ function scoreAndTime(){
 }
 
 function moleClicked(){
+  for(i = 0; i < 751; i + 250){
+    if(rmousx > 0 && rmousx < i
+  }
+    
 }
 
 function goodMole(){
@@ -86,3 +103,4 @@ function goodMole(){
 
 function badMole(){
 }
+
