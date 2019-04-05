@@ -4,9 +4,25 @@ let score = 0;
 let goodMoleClicked;
 let badMoleClicked;
 let timer = 5;
+let grid = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+];
+let boxClicked;
+let gMole;
+let bMole;
+let gameValue = true;
+
+
+function mousePressed(){
+  moleClicked();
+  goodMole();
+}
 
 function setup() {
   createCanvas(750, 750);
+  
   
   
   
@@ -27,7 +43,7 @@ text("time: " + timer, width/2, height/2);
   if (timer == 0) {
     background(255);
     text("GAME OVER", width/2, height*0.5);
-   
+    gameValue = false;
   }
   
 }
@@ -79,10 +95,30 @@ function scoreAndTime(){
 }
 
 function moleClicked(){
+  for(i = 0; i < 3; i++){
+    for(j = 0; j < 3; j++){
+      if(int(mouseX / 250) == i && int(mouseY / 250) == j){
+        boxClicked = grid[j][i];
+        //console.log(boxClicked);
+      }
+    }
+  }
 }
 
 function goodMole(){
+  let randomx = int(random(0,2));
+  let randomy = int(random(0,2));
+  gMole = grid[randomx][randomy];
+  fill(0, 255, 0);
+  rect(randomx * 250, randomy * 250, 250, 250);
+  if(gameValue === true && boxClicked == gMole){
+    fill(0, 255, 0);
+    rect(randomx * 250, randomy * 250, 250, 250);
+  }
+  
 }
 
 function badMole(){
+  bMole = grid[random(0,2)][random(0,2)];
 }
+
